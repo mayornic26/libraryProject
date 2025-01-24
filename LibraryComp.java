@@ -11,13 +11,14 @@ public class LibraryComp {
 	    ArrayList<Integer> columnA = new ArrayList<Integer>();
         ArrayList<String> columnV = new ArrayList<String>();
 	  try { 
-            File myObj = new File("LibraryCodes.csv");
+            File myObj = new File("LibraryCodes.txt");
             Scanner myReader = new Scanner(myObj); // For the file inputs
             myReader.nextLine(); //I did not know you could use this to skip the next line
             while (myReader.hasNextLine()) {
                 String newData = myReader.nextLine();
+                int lCodes = Intger.parseInt(newData);
                 String regex = "[\t]";
-                String[] eachColumn = data.split(regex);
+                String[] eachColumn = newData.split(regex);
                 columnA.add(Integer.valueOf(eachColumn[0]));
                 columnV.add(eachColumn[21]);
             }
