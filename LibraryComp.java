@@ -16,38 +16,38 @@ public class LibraryComp {
             myReader.nextLine(); //I did not know you could use this to skip the next line
             while (myReader.hasNextLine()) {
                 String newData = myReader.nextLine();
-                int lCodes = Intger.parseInt(newData);
+                //int codes = Integer.parseInt(newData);
                 String regex = "[\t]";
-                String[] eachColumn = newData.split(regex);
-                columnA.add(Integer.valueOf(eachColumn[0]));
-                columnV.add(eachColumn[21]);
+                String[] newData1 = newData.split(regex);
+                columnA.add(Integer.valueOf(newData1[0]));
+                columnV.add(newData1[21]);
             }
             myReader.close();
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred. File Export Items, Copy Based-3.txt not found.");
             e.printStackTrace();
         }
+	
     try {
-      File myObj = new File("StudentBarcodeIDS.csv");
-      Scanner myReader = new Scanner(myObj);
-      while (myReader.hasNextLine()) {
-        String data = myReader.nextLine();
-        try {
-    
-           int number = Integer.parseInt(data); //converts the data into a integer and sets data to number
-           codes.add(number); //sets the codes to number
-         } catch (NumberFormatException e) {
-		   System.out.println("Not a number on file - skips the first line since it is a string");	 
-	     }  
-      }
-      catch (FileNotFoundException e) {
-      System.out.println("An error occurred.");
+			File myObj = new File("StudentBarcodeIDS`.csv");
+			Scanner myReader = new Scanner(myObj);
+			myReader.nextLine(); //skips line
+			while (myReader.hasNextLine()) {
+				String data = myReader.nextLine();
+				System.out.println(data);
+			    int number = Integer.parseInt(data); //converts the data into a integer and sets data to number
+                codes.add(number); //sets the codes to number
+			}
+			myReader.close();
+		} catch (FileNotFoundException e) {
+		System.out.println("An error occurred.");
+		e.printStackTrace();
     }
+    
   }
 }
-}
 
-/*myReader.close();
+/* myReader.close();
       Collections.sort(codes); //sorts the codes from smallest to largest 
 	  Scanner input = new Scanner(System.in); //scanner for input
       System.out.println("What number would you like to search: ");
@@ -65,4 +65,4 @@ public class LibraryComp {
 		    System.out.println("Not a number entered");	 
 	     }  
       
-    } /*
+    } */ 
